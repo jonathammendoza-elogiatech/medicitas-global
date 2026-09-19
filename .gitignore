@@ -1,0 +1,20 @@
+# Symlinks o clones de los repos externos — NO se versionan.
+# Se preparan con scripts/bootstrap.sh
+/external-repos/*
+!/external-repos/README.md
+!/external-repos/repos.txt
+
+# Secretos / entorno local — NUNCA se versionan
+.env
+.env.local
+.env.*
+!.env.example
+
+# Scratch / temporales
+/temp/
+
+# Config local del asistente / editor
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store

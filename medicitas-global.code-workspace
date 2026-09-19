@@ -1,0 +1,13 @@
+{
+  "folders": [
+    { "path": "." },
+    { "name": "medicitas-upc", "path": "external-repos/medicitas-upc" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "external-repos/*/node_modules": true,
+      "external-repos/*/.gradle": true,
+      "external-repos/*/build": true
+    }
+  }
+}

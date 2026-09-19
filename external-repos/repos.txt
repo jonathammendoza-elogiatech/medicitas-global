@@ -1,0 +1,5 @@
+# Manifiesto de repos orquestados desde medicitas-global.
+# Fuente de verdad que iteran los scripts cross-repo (bootstrap.sh, etc.).
+# Una línea = un repo activo. Comentarios con '#'.
+# Repos alojados en GitHub, org/usuario: jonathammendoza-elogiatech
+medicitas-upc
