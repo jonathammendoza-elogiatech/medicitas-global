@@ -17,7 +17,8 @@ salvo este `README.md` (catálogo) y `repos.txt` (manifiesto).
 
 | repo | stack | rol | propósito |
 | --- | --- | --- | --- |
-| **medicitas-upc** | Android (Android Studio, JDK 25) | app móvil | Aplicación del proyecto. _(Contexto completo pendiente de detallar.)_ |
+| **concebir-medicos-upc** | Android (Kotlin, Compose, Hilt) | app móvil del médico | App del piloto **Concebir Médicos**: agenda multi-sede, pacientes, ficha y resultados, y registro de la atención. Ingreso con CMP + biometría. |
+| _(pendiente)_ servicio REST | Cloud (AWS Lambda + API Gateway) | backend | Capa de integración con Sysmedical (mock en el piloto). Añadir aquí y en `repos.txt` cuando se cree. |
 
 <!--
 Formato para nuevas entradas:

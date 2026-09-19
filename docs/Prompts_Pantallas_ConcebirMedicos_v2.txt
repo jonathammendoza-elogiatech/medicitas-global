@@ -1,0 +1,252 @@
+GUÍA DE PROMPTS — PANTALLAS "CONCEBIR MÉDICOS" (v2 · alcance actualizado · UX orientado a ayudar)
+================================================================================================
+
+Qué es esto
+-----------
+Kit de prompts para generar las pantallas de la app en una herramienta de diseño/generación de UI.
+Objetivo: pantallas COMPLETAS, consistentes entre sí y con una experiencia que AYUDA al médico
+(rápida, clara, sin fricción), no una que estorba.
+
+Cómo usarlo (2 pasos)
+---------------------
+1) Pega el BLOQUE 0 (contexto + estilo) al inicio de CADA prompt de pantalla. Sin él, cada
+   pantalla sale con colores y tipografía distintos y no conectan entre sí.
+2) A continuación pega el bloque de la pantalla que quieras generar. Repite para las 9 pantallas.
+
+Regla de oro: la app NO crea, reprograma ni anula citas (eso vive en el sistema de la clínica).
+La única acción de escritura es registrar la nota / confirmar la atención.
+
+
+================================================================================================
+BLOQUE 0 — CONTEXTO Y ESTILO   (pegar SIEMPRE al inicio de cada pantalla)
+================================================================================================
+Diseña una pantalla de app móvil Android (Material 3, teléfono en vertical, ancho base 390dp) para
+"Concebir Médicos", una aplicación de uso exclusivo del personal médico de una clínica de fertilidad
+en Lima, Perú. La app ayuda al médico a organizar su día entre varias sedes: consultar su agenda,
+revisar la ficha y los resultados de sus pacientes, y registrar la atención — sin depender de la
+computadora de la clínica.
+
+PRINCIPIOS DE UX (prioridad máxima: la app debe AYUDAR, no estorbar)
+- Lo importante primero: la información y la acción más frecuentes, arriba y a la mano.
+- Mínimos toques: rutas cortas para lo cotidiano; valores por defecto sensatos.
+- Claridad clínica: jerarquía visual fuerte; datos vitales (horas, dosis, valores) legibles de un vistazo.
+- Baja fricción: sin formularios largos innecesarios; confirmaciones solo cuando de verdad importan.
+- Uso a una mano: acciones principales al alcance del pulgar; área táctil mínima 48x48dp.
+- Estados siempre resueltos: toda lista define carga (skeleton), vacío (mensaje amable + siguiente paso)
+  y error (mensaje claro + botón "Reintentar").
+- Microcopy humano en español (Perú): guía y tranquiliza; nada de jerga de sistema ni códigos de error.
+- Accesibilidad: contraste AA; no depender solo del color para comunicar estado (usar texto o ícono).
+- Sobrio y profesional: sin emojis, sin ilustraciones decorativas, sin animaciones llamativas.
+- Identidad garantizada: el ingreso y la firma de la atención usan biometría (huella/rostro), con contraseña como alternativa, para asegurar que quien accede y registra es el médico (no repudio).
+
+PALETA DE COLORES (rol → hex)
+- Primario (barra superior, botones principales, pestañas/ítems seleccionados): azul petróleo  #124559
+- Primario presionado: #0B2C39
+- Acento / apoyo (progreso, acciones de ayuda, enlaces, chips activos): turquesa  #3FA7A0
+- Fondo (lienzo de la pantalla): #F4F7F9
+- Superficie / tarjetas: #FFFFFF
+- Texto alto énfasis: #16202B   ·   texto medio énfasis: #4A5563   ·   bordes/divisores: #E3E8EE
+- Estados de cita:  Confirmada #124559  ·  Atendida #2E7D5B  ·  Reprogramada #C98A0E  ·  Anulada #B3261E
+- Semáforo de valores:  fuera de rango #B3261E  ·  dentro de rango #2E7D5B  ·  pendiente #C98A0E
+
+TIPOGRAFÍA: Inter (o sans humanista similar). Títulos en semibold; cuerpo en regular; números
+clínicos con excelente legibilidad. Jerarquía clara y bastante aire entre bloques.
+
+FORMAS Y ESPACIADO: tarjetas con esquinas redondeadas de 16px y sombra muy suave; botones e inputs
+de 8–12px; rejilla base de 8dp; márgenes laterales de 16px; iconografía de línea (outlined).
+
+NAVEGACIÓN: barra inferior con 4 destinos, SIEMPRE en este orden: Inicio · Agenda · Pacientes · Perfil.
+Las pantallas de detalle usan barra superior con botón de retroceso + título.
+
+ESTADOS DE UNA CITA (únicos): Confirmada, Atendida, Reprogramada, Anulada.
+
+DATOS DE EJEMPLO (los mismos en todas las pantallas, para que el prototipo se recorra como un caso real):
+- Médica: Dra. Ana Torres Delgado — medicina reproductiva — sede San Isidro.
+- Paciente de ejemplo: Lucía Fernández Ramos, 34 años, historia clínica HC-20481,
+  en tratamiento FIV (ciclo 2, día 8 de estimulación).
+- Sedes: San Isidro, Los Olivos, San Miguel.
+
+
+================================================================================================
+PANTALLA 1 — Inicio de sesión
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: dejar entrar rápido, transmitiendo seguridad y confianza.
+Contenido:
+- Logo circular simple + "Concebir Médicos" y subtítulo "Acceso para personal médico".
+- Campo "Código CMP (Colegio Médico del Perú)" (ícono de credencial, teclado numérico) con foco automático al abrir.
+- Campo "Contraseña" (ícono candado + botón mostrar/ocultar).
+- Casilla "Recordar mi usuario".
+- Botón principal ancho "Iniciar sesión" (se habilita cuando ambos campos tienen contenido).
+- Botón secundario con ícono de huella/rostro: "Ingresar con biometría" (si el dispositivo la tiene configurada); la contraseña queda como alternativa de respaldo.
+- Enlace "¿Olvidaste tu contraseña?".
+- Estado de error amable, sin culpar: "No pudimos validar tus datos. Revisa tu CMP y contraseña."
+- Pie discreto: "SERPROSA · Clínica Concebir".
+Sin barra de navegación inferior.
+
+
+================================================================================================
+PANTALLA 2 — Inicio (resumen del día)
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: al abrir, el médico entiende su día en 3 segundos y sabe qué hacer ahora.
+Contenido:
+- Barra superior con saludo contextual: "Buenos días, Dra. Torres" + fecha y sede activa (San Isidro).
+- Fila de 3 tarjetas-resumen con número grande y etiqueta: "8 Citas de hoy", "3 Atendidas",
+  "2 Pendientes de registro".
+- Tarjeta destacada "Próxima atención": hora 10:30, Lucía Fernández Ramos, "Control folicular",
+  "San Isidro · Consultorio 3", botón "Ver detalle".
+- Sección "Siguientes citas": lista corta (hora · paciente · tipo · chip de estado con color).
+- Barra de navegación inferior con "Inicio" seleccionado.
+Toque UX friendly: si no hay citas hoy, estado vacío amable ("Hoy no tienes citas programadas")
+en lugar de una lista en blanco.
+
+
+================================================================================================
+PANTALLA 3 — Agenda del médico
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: encontrar cualquier cita rápido, filtrando sin pensar.
+Contenido:
+- Barra superior "Agenda" con ícono de calendario.
+- Pestañas "Día" y "Semana" (Día seleccionada).
+- Selector de fecha horizontal desplazable (L a D), con el día actual resaltado.
+- Fila de chips de filtro por sede: "Todas", "San Isidro", "Los Olivos", "San Miguel" (Todas activo).
+- Lista de citas del día, cada una como tarjeta: hora a la izquierda, nombre del paciente, tipo de
+  atención, sede, y chip de estado a la derecha (barra vertical de color en el borde izquierdo).
+- Barra de navegación inferior con "Agenda" seleccionado.
+NO incluye botón para crear una cita (es una app de consulta y registro).
+Toque UX friendly: encabezado de sección por día en la vista Semana; estado vacío por día sin citas.
+
+
+================================================================================================
+PANTALLA 4 — Detalle de la cita
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: preparar la atención con todo el contexto a la vista y un paso claro hacia registrar.
+Contenido:
+- Barra superior con retroceso y título "Detalle de la cita".
+- Encabezado: hora "10:30 a. m.", fecha, chip de estado "Confirmada".
+- Tarjeta "Paciente": avatar de iniciales, nombre "Lucía Fernández Ramos", "34 años", "HC-20481".
+- Tarjeta "Datos de la atención": tipo "Control folicular", sede "San Isidro", consultorio "3",
+  duración "20 minutos".
+- Tarjeta "Tratamiento vigente": "FIV · Ciclo 2 · Día 8 de estimulación".
+- Dos botones secundarios lado a lado: "Ver ficha del paciente" y "Ver resultados".
+- Botón principal ancho al final: "Registrar atención".
+Sin barra de navegación inferior (es pantalla de detalle).
+
+
+================================================================================================
+PANTALLA 5 — Registro de nota de evolución
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: capturar la nota en segundos, con confianza de que quedó guardada.
+Contenido:
+- Barra superior con retroceso y título "Registrar atención".
+- Tarjeta compacta de contexto (gris claro): "Lucía Fernández Ramos · Control folicular · 22/09, 10:30".
+- Selector "Tipo de nota" (Evolución / Indicación / Observación), con "Evolución" por defecto.
+- Campo de texto multilínea grande, etiqueta "Nota de evolución", ayuda "Describe los hallazgos y las
+  indicaciones", contador "0/1000" en la esquina inferior derecha.
+- Casilla marcada por defecto: "Marcar la atención como realizada".
+- Aviso informativo con ícono: "Se registrará en el sistema de la clínica y no podrá editarse desde la app."
+- Dos botones al final: "Cancelar" (secundario) y "Guardar" (principal).
+- Al pulsar "Guardar", la app solicita FIRMA BIOMÉTRICA (huella/rostro) para verificar la identidad del médico antes de registrar la nota (no repudio); si no hay biometría disponible, pide la contraseña.
+Sin barra de navegación inferior.
+Toque UX friendly: al guardar, confirmación breve ("Atención registrada") y regreso automático.
+
+
+================================================================================================
+PANTALLA 6 — Pacientes (búsqueda y listado)
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: llegar a un paciente en 1–2 toques, buscando como uno piensa.
+Contenido:
+- Barra superior "Pacientes".
+- Barra de búsqueda con ícono de lupa y ayuda "Buscar por nombre o DNI".
+- Fila de chips de filtro: "Todas", "En tratamiento", "En seguimiento" (Todas activo).
+- Texto discreto de conteo: "24 pacientes asignadas".
+- Lista de pacientes: cada fila con avatar de iniciales, nombre, y debajo (texto pequeño) edad,
+  número de historia clínica y tratamiento vigente; a la derecha, fecha de última atención.
+- Barra de navegación inferior con "Pacientes" seleccionado.
+Toque UX friendly: búsqueda que filtra al escribir; estado vacío con sugerencia ("No encontramos
+pacientes con ese nombre o DNI").
+
+
+================================================================================================
+PANTALLA 7 — Ficha del paciente
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: entender al paciente rápido, con lo clínico organizado por pestañas.
+Contenido:
+- Barra superior con retroceso y título "Ficha del paciente".
+- Encabezado: avatar de iniciales, "Lucía Fernández Ramos", y debajo "34 años · HC-20481 · San Isidro".
+- Pestañas: "Datos", "Antecedentes", "Historial" (Datos seleccionada).
+- En "Datos": tarjeta con DNI, fecha de nacimiento, teléfono, correo y seguro.
+- Tarjeta "Tratamiento vigente": "FIV · Ciclo 2 · Día 8" · inicio · médico responsable.
+- Tarjeta "Antecedentes" resumida (obstétricos, quirúrgicos, alergias).
+- Tarjeta "Últimas atenciones": 3 filas (fecha · tipo · médico).
+- Botón principal ancho al final: "Ver resultados de exámenes".
+Sin barra de navegación inferior.
+
+
+================================================================================================
+PANTALLA 8 — Resultados de exámenes
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: leer resultados sin ambigüedad; que lo fuera de rango salte a la vista.
+Contenido:
+- Barra superior con retroceso y título "Resultados", y debajo, en pequeño, "Lucía Fernández Ramos · HC-20481".
+- Pestañas "Laboratorio" y "Genética" (Laboratorio seleccionada).
+- Lista de resultados: cada uno como tarjeta con nombre del examen, fecha, valor con su unidad,
+  rango de referencia y chip de estado.
+- Al menos un resultado FUERA DE RANGO, destacado con color y con texto "Fuera de rango" (no solo color).
+- Los resultados sin dato aparecen como "Resultado pendiente".
+Sin barra de navegación inferior.
+Toque UX friendly: agrupar por fecha; leyenda breve del semáforo de valores.
+
+
+================================================================================================
+PANTALLA 9 — Perfil y configuración
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Objetivo UX: controlar lo esencial (sede activa, notificaciones, salir) sin ruido.
+Contenido:
+- Barra superior "Perfil".
+- Tarjeta de encabezado: avatar con iniciales, "Dra. Ana Torres Delgado" y, destacado justo debajo
+  del nombre, el identificador principal "CMP 45782" (Colegio Médico del Perú); luego la especialidad
+  "Medicina reproductiva".
+- Lista de datos: correo y teléfono.
+- Selector "Sede activa" con valor "San Isidro" y opciones "Los Olivos" y "San Miguel"
+  (cambiarla filtra agenda y pacientes en toda la app).
+- Interruptor "Notificaciones de agenda" (activado).
+- Fila con flecha "Acerca de la aplicación" (versión).
+- Botón de texto en rojo al final: "Cerrar sesión".
+- Barra de navegación inferior con "Perfil" seleccionado.
+
+
+================================================================================================
+BLOQUE FINAL — Componentes y navegación comunes (hoja de estilos reutilizable)
+================================================================================================
+[PEGAR BLOQUE 0 ARRIBA]
+Genera una hoja de componentes reutilizables para mantener la consistencia visual entre pantallas:
+1. Barra de navegación inferior con 4 ítems e íconos de línea: Inicio · Agenda · Pacientes · Perfil,
+   mostrando el estado seleccionado.
+2. Barra superior en sus dos variantes: solo título; y retroceso + título.
+3. Tarjeta de cita reutilizable: hora, paciente, tipo, sede, chip de estado y barra de color al borde.
+4. Chips de estado en sus 4 colores: Confirmada, Atendida, Reprogramada, Anulada.
+5. Fila de paciente reutilizable: avatar de iniciales, nombre, datos secundarios y flecha.
+6. Estados de lista: cargando (skeleton), vacío (ícono + mensaje amable + siguiente paso) y
+   error (mensaje claro + botón "Reintentar").
+7. Botones: principal (petróleo), secundario (contorno) y de apoyo (turquesa tenue).
+
+
+================================================================================================
+CHECKLIST antes de dar por buenas las pantallas
+================================================================================================
+[ ] Las 9 pantallas usan la misma paleta, tipografía y barra de navegación.
+[ ] Ninguna pantalla permite crear, reprogramar o anular una cita.
+[ ] Todo el texto está en español (Perú) y el microcopy ayuda (no hay jerga de sistema).
+[ ] Cada lista define sus estados de carga, vacío y error.
+[ ] Lucía Fernández Ramos aparece con los mismos datos en agenda, detalle, ficha y resultados.
+[ ] Lo fuera de rango se comunica con texto o ícono, no solo con color (accesibilidad).
+[ ] Las acciones principales quedan al alcance del pulgar y con área táctil de 48dp.

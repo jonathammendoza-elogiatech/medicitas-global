@@ -1,7 +1,7 @@
 {
   "folders": [
     { "path": "." },
-    { "name": "medicitas-upc", "path": "external-repos/medicitas-upc" }
+    { "name": "concebir-medicos-upc", "path": "external-repos/concebir-medicos-upc" }
   ],
   "settings": {
     "files.exclude": {
