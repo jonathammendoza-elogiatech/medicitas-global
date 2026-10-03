@@ -18,7 +18,7 @@ salvo este `README.md` (catálogo) y `repos.txt` (manifiesto).
 | repo | stack | rol | propósito |
 | --- | --- | --- | --- |
 | **concebir-medicos-upc** | Android (Kotlin, Compose, Hilt) | app móvil del médico | App del piloto **Concebir Médicos**: agenda multi-sede, pacientes, ficha y resultados, y registro de la atención. Ingreso con CMP + biometría. |
-| _(pendiente)_ servicio REST | Cloud (AWS Lambda + API Gateway) | backend | Capa de integración con Sysmedical (mock en el piloto). Añadir aquí y en `repos.txt` cuando se cree. |
+| **concebir-medicos-api** | Cloud (AWS Lambda Python + DynamoDB + API Gateway + Cognito) | backend | Servicio REST que consume la app: perfil, agenda, pacientes, resultados y registro firmado de la atención. Login con Cognito (usuario = CMP). Datos de ejemplo en lugar de Sysmedical en el piloto. |
 
 <!--
 Formato para nuevas entradas:

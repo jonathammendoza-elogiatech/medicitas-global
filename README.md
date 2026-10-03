@@ -43,13 +43,15 @@ MEDICITAS/
 │   ├── external-repos/            ← symlinks a los repos reales (no se versiona)
 │   │   ├── README.md              ← catálogo de repos
 │   │   ├── repos.txt              ← manifiesto (fuente de verdad)
-│   │   └── concebir-medicos-upc → ../../concebir-medicos-upc
+│   │   ├── concebir-medicos-upc → ../../concebir-medicos-upc
+│   │   └── concebir-medicos-api → ../../concebir-medicos-api
 │   ├── scripts/                   ← bootstrap.sh (puebla external-repos/)
 │   ├── docs/                      ← informe del curso, guía de pantallas, prototipo
 │   ├── medicitas-global.code-workspace
 │   ├── CLAUDE.md                  ← CONTEXTO UNIFICADO del proyecto
 │   └── README.md
-└── concebir-medicos-upc/          ← repo real (app Android) → GitHub
+├── concebir-medicos-upc/          ← repo real (app Android) → GitHub
+└── concebir-medicos-api/          ← repo real (servicio REST en AWS) → GitHub
 ```
 
 ## Paso a paso (primera vez que clonas)
@@ -63,7 +65,7 @@ git clone https://github.com/jonathammendoza-elogiatech/medicitas-global.git
 cd medicitas-global
 
 # 2. Prepara los repos de código en external-repos/
-#    Clona automáticamente concebir-medicos-upc desde GitHub
+#    Clona automáticamente concebir-medicos-upc y concebir-medicos-api desde GitHub
 #    (o crea un symlink si ya lo tienes clonado al lado)
 ./scripts/bootstrap.sh
 ./scripts/bootstrap.sh --check     # opcional: solo reporta estado
@@ -72,6 +74,7 @@ cd medicitas-global
 
 # 4. Abre el proyecto
 #    - App Android: abre external-repos/concebir-medicos-upc en Android Studio y haz Gradle Sync
+#    - Servicio REST: sigue external-repos/concebir-medicos-api/README.md (despliegue en AWS)
 #    - Workspace multi-root (VS Code): abre medicitas-global.code-workspace
 ```
 

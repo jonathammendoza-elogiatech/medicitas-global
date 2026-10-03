@@ -59,7 +59,7 @@ El servicio REST (E6) es trabajo **de equipo**.
 | repo | stack | rol | GitHub |
 | --- | --- | --- | --- |
 | **concebir-medicos-upc** | Android (Kotlin, Jetpack Compose, Hilt) | app móvil del médico (piloto) | `jonathammendoza-elogiatech/concebir-medicos-upc` |
-| _(pendiente)_ servicio REST | Cloud (AWS Lambda + API Gateway) | capa de integración con Sysmedical | por crear (añadir a `repos.txt` cuando exista) |
+| **concebir-medicos-api** | Cloud (AWS Lambda Python + DynamoDB + API Gateway + Cognito) | servicio REST que consume la app (capa de integración con Sysmedical) | `jonathammendoza-elogiatech/concebir-medicos-api` |
 
 - Los repos reales se referencian en `external-repos/` por symlink. Editar el código allí.
 - Org/usuario GitHub: **`jonathammendoza-elogiatech`**.
@@ -88,6 +88,8 @@ confirmar citas, ver resultados, T&C— quedó pausada, no en el alcance actual.
 - **Nombres:** Medicitas = plataforma; Concebir Médicos = instancia piloto (white-label).
 - **Usuario = CMP** (no correo); biometría para ingreso y para **firmar** la atención.
 - **Sysmedical simulado (mock)** en el piloto: la integración real depende de un tercero (MacPro).
+  El servicio REST sirve datos de ejemplo desde DynamoDB (cuenta AWS Academy del curso).
+- **Login con Amazon Cognito** (usuario = CMP, sin auto-registro); API Gateway valida el token.
 - **Datos de ejemplo consistentes** en todo el prototipo: paciente Lucía Fernández Ramos
   (HC-20481, FIV ciclo 2) y médica Dra. Ana Torres Delgado (sede San Isidro).
 

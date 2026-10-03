@@ -1,7 +1,8 @@
 {
   "folders": [
     { "path": "." },
-    { "name": "concebir-medicos-upc", "path": "external-repos/concebir-medicos-upc" }
+    { "name": "concebir-medicos-upc", "path": "external-repos/concebir-medicos-upc" },
+    { "name": "concebir-medicos-api", "path": "external-repos/concebir-medicos-api" }
   ],
   "settings": {
     "files.exclude": {
